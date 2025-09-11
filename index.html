@@ -65,12 +65,6 @@
             transition: background 0.3s ease, color 0.3s ease;
         }
         
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
         /* 年龄验证覆盖层 */
         .age-verification-overlay {
             position: fixed;
@@ -153,6 +147,12 @@
             filter: blur(10px);
             pointer-events: none;
             user-select: none;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
         }
         
         /* 导航栏样式 */
@@ -564,10 +564,6 @@
             .header-actions {
                 gap: 10px;
             }
-            
-            .age-verification-buttons {
-                flex-direction: column;
-            }
         }
         
         @media (max-width: 480px) {
@@ -584,19 +580,11 @@
                 width: 35px;
                 height: 35px;
             }
-            
-            .age-verification-box {
-                padding: 25px;
-            }
-            
-            .age-verification-title {
-                font-size: 24px;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- 年龄验证覆盖层 -->
+<!-- 年龄验证覆盖层 -->
     <div class="age-verification-overlay" id="ageVerification">
         <div class="age-verification-box">
             <div class="age-verification-icon">
@@ -637,7 +625,7 @@
         </div>
     </header>
 
-    <main class="container" id="mainContent">
+    <main class="container">
         <!-- 应用详情头部 -->
         <div class="app-header">
             <div class="app-icon">
@@ -836,12 +824,15 @@
                         </div>
                     </div>
                 </div>
+
+                
+                </div>
             </div>
         </div>
     </main>
 
     <script>
-        // 年龄验证功能
+    // 年龄验证功能
         const ageVerification = document.getElementById('ageVerification');
         const mainContent = document.getElementById('mainContent');
         const confirmAgeBtn = document.getElementById('confirmAge');
@@ -872,7 +863,7 @@
         exitSiteBtn.addEventListener('click', function() {
             window.location.href = 'https://www.baidu.com/';
         });
-        
+    
         // 主题切换功能
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = themeToggle.querySelector('i');
@@ -909,9 +900,6 @@
         
         // 页面加载完成后初始化
         document.addEventListener('DOMContentLoaded', function() {
-            // 检查年龄验证
-            checkAgeVerification();
-            
             // 评分动画
             const ratings = document.querySelectorAll('.rating');
             ratings.forEach(rating => {
